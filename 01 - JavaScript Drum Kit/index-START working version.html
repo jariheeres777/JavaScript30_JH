@@ -22,7 +22,7 @@
       <span class="sound">kick</span>
     </div>
     <div data-key="70" class="key">
-      <kbd>F</kbd>
+      <kbd>f</kbd>
       <span class="sound">openhat</span>
     </div>
     <div data-key="71" class="key">
@@ -58,7 +58,14 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+window.addEventListener('keydown', (e) => {
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"`)
+  console.log(visible)
+  audio.play()
+  
 
+
+})
 </script>
 
 
