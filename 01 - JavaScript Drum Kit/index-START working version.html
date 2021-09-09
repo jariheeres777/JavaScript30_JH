@@ -60,8 +60,14 @@
 <script>
 window.addEventListener('keydown', (e) => {
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"`)
-  console.log(visible)
-  audio.play()
+    audio.play()
+  const visible = document.querySelector(`div[data-key="${e.keyCode}"`)
+  visible.className = "key playing"
+  setTimeout(function(){
+    visible.className = "key"
+}, 200); 
+  
+
   
 
 
