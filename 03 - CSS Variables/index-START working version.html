@@ -9,13 +9,13 @@
 
   <div class="controls">
     <label for="spacing">Spacing:</label>
-    <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+    <input onchange="newSpacing()" id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
 
     <label for="blur">Blur:</label>
-    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+    <input onchange="newBlur()" id="blur" type="range" name="blur" min="0" max="25" value="0" data-sizing="px">
 
     <label for="base">Base Color</label>
-    <input id="base" type="color" name="base" value="#ffc600">
+    <input onchange="newBase()" id="base" type="color" name="base" value="#ffc600">
   </div>
 
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
@@ -25,7 +25,7 @@
     :root{
     --base: #ffc600;
     --spacing:10px;
-    --blur: 1px;
+    --blur: 0px;
   }
   img {
     padding: var(--spacing);
@@ -58,14 +58,29 @@
     }
   </style>
 
-  <script>    
+  <script> 
+let root =document.querySelector(':root')    
 
+function newSpacing(){
+let space=document.getElementById("spacing").value
+root.style.setProperty("--spacing",`${space}px`)
+}
+
+function newBlur(){
+let blur=document.getElementById("blur").value
+root.style.setProperty("--blur",`${blur}px`)
+}
+
+function newBase(){
+let base=document.getElementById("blur").value
+root.style.setProperty("--base",`${base}px`)
+}
 
 
 /*
-let root =document.querySelector(':root')
+
 root.style.setProperty("--base",'red')
-root.style.setProperty("--spacing",'20px')
+
 root.style.setProperty("--blur",'20px')
 */
 
