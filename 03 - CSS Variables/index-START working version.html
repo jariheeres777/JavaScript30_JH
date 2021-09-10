@@ -22,6 +22,20 @@
 
   <style>
 
+    :root{
+    --base: #ffc600;
+    --spacing:10px;
+    --blur: 1px;
+  }
+  img {
+    padding: var(--spacing);
+    background: var(--base);
+    filter: blur(var(--blur));
+  }
+  .h1{
+    color: var(--base);
+  }
+
     /*
       misc styles, nothing to do with CSS variables
     */
@@ -44,7 +58,17 @@
     }
   </style>
 
-  <script>
+  <script>    
+
+
+
+/*
+let root =document.querySelector(':root')
+root.style.setProperty("--base",'red')
+root.style.setProperty("--spacing",'20px')
+root.style.setProperty("--blur",'20px')
+*/
+
   </script>
 
 </body>
