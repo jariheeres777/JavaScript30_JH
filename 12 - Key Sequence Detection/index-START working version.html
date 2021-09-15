@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Key Detection</title>
   <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
 </head>
+
 <body>
-<script>
-</script>
+  <script>
+
+    const pressed = []
+    const rightCode = 'hallo'
+
+    window.addEventListener('keyup', (e) => {
+      pressed.push(e.key)
+      pressed.splice(- rightCode.length - 1, pressed.length - rightCode.length)
+      console.log(pressed.join(''))
+      if (pressed.join('') === rightCode) {
+        console.log('you found the code')
+        cornify_add()
+      }
+    })
+
+
+
+  </script>
 </body>
+
 </html>
