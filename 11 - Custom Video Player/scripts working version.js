@@ -16,15 +16,39 @@ function togglePlay() {
     }
 }
 
-
-
 function updateButton() {
     const icon = this.paused ? '►' : '❚❚'
     toggle.textContent = icon
 }
 
+function skipVideo(e) {
+    video.currentTime += parseFloat(this.dataset.skip)
+}
+
+function rangeSlider() {
+    video[this.name] = this.value
+}
+
+function videoTimestamp(){
+const timeOff = (video.currentTime / video.duration)*100
+progressBar.style.flexBasis = `${timeOff}%`
+}
+
+function changeVideoTime(e){
+    const timeProcent = (e.offsetX / progress.offsetWidth)*video.duration 
+    video.currentTime = timeProcent
+}
+
 video.addEventListener(`click`, togglePlay)
 video.addEventListener('play', updateButton)
 video.addEventListener('pause', updateButton)
+video.addEventListener(`timeupdate`, videoTimestamp)
 
 toggle.addEventListener(`click`, togglePlay)
+
+skipButtons.forEach(e => e.addEventListener(`click`, skipVideo))
+
+ranges.forEach(e => e.addEventListener('change', rangeSlider))
+ranges.forEach(e => e.addEventListener('mousemove', rangeSlider))
+
+progress.addEventListener('click',changeVideoTime)
