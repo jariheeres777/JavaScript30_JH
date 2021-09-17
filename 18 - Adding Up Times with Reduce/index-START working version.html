@@ -182,6 +182,22 @@
     </li>
   </ul>
 <script>
+const time = Array.from(document.querySelectorAll('[data-time]'))
+
+
+const timeArray = time.map(e =>e.dataset.time)
+
+const totalTimeSeconds = timeArray.reduce((sum, string) => {
+    var mins, secs;
+    [mins, secs] = string.split(":").slice(-2).map(n => parseInt(n, 10));
+    return sum + mins * 60 + secs;
+  }, 0)
+
+const totalTimeString = totalTimeSeconds/360
+const totalStringTime = JSON.stringify(totalTimeString.toFixed(2))
+const totaltime = totalStringTime.replace('.',':')
+
+console.log(totaltime)
 </script>
 </body>
 </html>
