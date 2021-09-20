@@ -40,8 +40,20 @@
   }
 </style>
 
+
 <button></button>
 <script>
+  const divs = document.querySelectorAll('div')
+
+  function logText(e){
+    console.log(this.classList.value)
+
+
+  }
+  divs.forEach(e => e.addEventListener('click',logText,{
+    capture: false,
+    once:true
+  }))
 
 </script>
 </body>
