@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Click and Drag</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Click and Drag</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="items">
+<div class="items">
     <div class="item item1">01</div>
     <div class="item item2">02</div>
     <div class="item item3">03</div>
@@ -32,10 +32,39 @@
     <div class="item item23">23</div>
     <div class="item item24">24</div>
     <div class="item item25">25</div>
-  </div>
+</div>
 
 <script>
+    const divlist = document.querySelector('.items')
+    let isdown = false
+    let startx
+    let scrollLeft
+
+
+    divlist.addEventListener('mousedown', (e) => {
+        isdown = true
+        divlist.classList.add('active')
+        startx = e.pageX - divlist.offsetLeft
+        scrollLeft = divlist.scrollLeft
+    })
+    divlist.addEventListener('mouseleave', () => {
+        isdown = false
+        divlist.classList.remove('active')
+    })
+    divlist.addEventListener('mousemove', (e) => {
+        if (!isdown) return
+        e.preventDefault()
+        const x = e.pageX - divlist.offsetLeft
+        const walk = x -startx
+        divlist.scrollLeft = scrollLeft - walk
+
+    })
+    divlist.addEventListener('mouseup', () => {
+        isdown = false
+        divlist.classList.remove('active')
+    })
+
 </script>
 
-  </body>
+</body>
 </html>
