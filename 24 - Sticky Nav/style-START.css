@@ -35,6 +35,7 @@ header {
   justify-content: center;
 }
 
+
 h1 {
   color: white;
   font-size: 7vw;
@@ -49,7 +50,10 @@ nav {
   position: relative;
   z-index: 1;
 }
-
+.fixed-nav{
+  position: fixed;
+  box-shadow: 0 5px rgba(0,0,0,0.1);
+}
 nav ul {
   margin: 0;
   padding:0;
